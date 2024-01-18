@@ -1,0 +1,14 @@
+Kullanicinin Güncel konumuna hareket etme
+
+locationListener= object : LocationListener {
+    override fun onLocationChanged(p0: Location) {
+        //kullanicinin konumu degisince ypilacak islemler
+
+       //ilk önce önceden olusturulmus olan konumlari temizliyoruz
+
+        mMap.clear()
+        val guncelKonum= LatLng(p0.latitude,p0.longitude)
+
+        mMap.addMarker(MarkerOptions().position(guncelKonum).title("Guncel Konum"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(guncelKonum,15f))
+
