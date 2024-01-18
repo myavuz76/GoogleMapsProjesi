@@ -1,0 +1,35 @@
+Kullanicinin tikladigi yeri algılama
+
+Kullanicinin harita üzerinden tikladigi yeri algılamak icin bir dinleyici sinifi oluşturmak gerekir
+
+Onun icin bütün fonksiyonların disina ama sinisin içerisine bir Interface sinifindan bir listener tanımlıyoruz
+
+val dinleyici =object :GoogleMap.OnMapLongClickListener {
+    override fun onMapLongClick(p0: LatLng) {
+        TODO("Not yet implemented")
+    }
+
+
+}
+
+
+Sonra onMapsReady fonksiyonunun içerisine bu oluşturduğumuzu interface objesini bağlıyoruz
+
+mMap.setOnMapLongClickListener(dinleyici)
+
+Sonra dinleyici Listeler fonksiyonunun icine 
+
+mMap.clear() fonksiyonu ile önceden belirlenen bütün konum bilgilerini siliyoruz
+
+Sonra Geocoder sinifindan bir nesne oluşturuyoruz
+
+val geocoder = Geocoder(this@MapsActivity, Locale.getDefault())
+
+
+Sonra kullanıcıdan gelen tiklama bilgisini içeren p0 verisinin boş olup olmadigini kontrol ediyoruz
+
+
+
+
+
+
