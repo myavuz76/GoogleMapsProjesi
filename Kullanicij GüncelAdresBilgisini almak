@@ -1,0 +1,22 @@
+Kullanicij GüncelAdresBilgisini almak
+
+onMapsReady fonksiyonu icerinde kullanicinin güncel konum adresini alabilmek icin Geocoder sinifiindan bir nesne solusturuyoruz
+
+Bu bize konum ile alakalı adres enlem boylam ve birçok bilgi barındıran bir liste veriyor
+
+ val geocoder= Geocoder(this@MapsActivity, Locale.getDefault())
+try {
+    val adresListesi= geocoder.getFromLocation(p0.latitude,p0.longitude,1)
+
+    if (adresListesi != null) {
+        if (adresListesi.size > 0){
+
+            println(adresListesi.get(0).toString())
+
+        }
+    }
+
+}catch (e:Exception){
+    e.stackTrace
+}
+
