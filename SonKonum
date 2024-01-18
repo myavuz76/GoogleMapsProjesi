@@ -1,0 +1,10 @@
+SonKonum
+
+Eger kullnici uygulamayı actiginda hareket etmemiş ise son kunumu göstermek gerekir
+
+val sonBilinenKonum = locationManeger.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+if (sonBilinenKonum != null){
+    val sonBilinenLatLng= LatLng(sonBilinenKonum.latitude,sonBilinenKonum.longitude)
+ mMap.addMarker(MarkerOptions().position(sonBilinenLatLng).title("Son bilinen Konum"))
+   mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sonBilinenLatLng,15f))
+}
