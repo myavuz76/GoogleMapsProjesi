@@ -1,0 +1,33 @@
+Kurulum
+
+Android empty paketini sectikten sonra proje kaynağına sag tıklayıp google sekmesinin altında google map aktivite sekmesinden googlemap ekliyoruz
+
+Sonra Manifest dosyasına konum izinlerini almak icin gerekli izin kodlarını giriyoruz
+
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.INTERNET"/>
+
+Sonra apiSchülüssel eklemek icin android Grandle bölümüne signingReport yazıp SH1 kodunu alıp 
+
+https://console.cloud.google.com/apis 
+
+sayfasina verip aldigimiz abi anahtarını Android string dosyasına ekliyoruz
+
+<string name="google_map_api_key">AIzaSyBiVx7DGJ6epfKp4-H1VyHPVFmisKMHlq0</string>
+
+Sonra manifest dosyasına su kodları ekliyoruz
+
+<meta-data
+    android:name="com.google.android.geo.API_KEY"
+    android:value="@string/google_map_api_key"/>
+
+
+
+
+
+
+
+
+
+
