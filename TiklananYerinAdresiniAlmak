@@ -1,0 +1,35 @@
+ilk önce bütün fonksiyonlarin disina ama sinfimizin icine dinleyici isminde bir Fonksiyon tanimliyoruz
+sonra onMapsReady fonksiyonu icerisinde
+
+mMap.setOnMapLongClickListener(dinleyici)
+
+bunu cagiriyoruz
+
+
+val dinleyici =object :GoogleMap.OnMapLongClickListener {
+        override fun onMapLongClick(p0: LatLng) {
+            var adres = ""
+            mMap.clear()
+
+            val geocoder = Geocoder(this@MapsActivity, Locale.getDefault())
+
+            try {
+
+                val adreslistesi = geocoder.getFromLocation(p0.latitude,p0.longitude,1)
+
+                if (adreslistesi!!.size > 0){
+                    if (adreslistesi.get(0).thoroughfare !=null){
+                        adres += adreslistesi.get(0).thoroughfare
+
+                        if (adreslistesi.get(0).subThoroughfare != null){
+                            adres += adreslistesi.get(0).subThoroughfare
+                        }
+                    }
+
+                }
+
+            }catch (e: Exception){
+                e.stackTrace
+            }
+            mMap.addMarker(MarkerOptions().position(p0).title(adres))
+        }
